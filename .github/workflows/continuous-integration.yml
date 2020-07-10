@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Clean install dependencies, and build with Gatsby
+      uses: actions/checkout@v2
       run: |
         npm ci
         npm run build
