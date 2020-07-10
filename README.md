@@ -1,3 +1,7 @@
+## Branches
+* **master** - Built files for deployment. Do not touch this branch
+* **source** - Develop in here.
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
