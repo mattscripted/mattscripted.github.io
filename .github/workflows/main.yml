@@ -29,3 +29,5 @@ jobs:
     # Publish to GitHub Pages with Gatsby
     - name: Gatsby Publish
       uses: enriikke/gatsby-gh-pages-action@v2.1.1
+      with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
