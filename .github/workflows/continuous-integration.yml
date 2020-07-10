@@ -7,8 +7,8 @@ on:
     branches: [ source ]
 
 jobs:
-  build:
-    name: Build
+  buildAndTest:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -20,12 +20,6 @@ jobs:
     - name: Build with Gatsby
       run: npm run build
 
-  test:
-    name: Test
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
     - name: Run linter and unit tests
       run: |
         npm run lint
