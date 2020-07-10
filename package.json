@@ -1,11 +1,30 @@
 {
-  "name": "gatsby-starter-blog",
-  "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "name": "mattscripted.github.io",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "private": true,
+  "description": "Personal blog for Matt Shelley",
+  "author": "Matt Shelley <matt.scripted@gmail.com>",
+  "homepage": "https://mattshelley.dev/",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "standard",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "deploy": "gatsby build && gh-pages -d public -b master"
+  },
+  "standard": {
+    "globals": [
+      "__PATH_PREFIX__"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test"
+    }
   },
   "dependencies": {
     "gatsby": "^2.23.12",
@@ -36,25 +55,9 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "gh-pages": "^3.1.0",
+    "husky": "^4.2.5",
+    "prettier": "2.0.5",
+    "standard": "^14.3.4"
   }
 }
