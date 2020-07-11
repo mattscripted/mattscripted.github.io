@@ -1,0 +1,19 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Clean install dependencies
+      run: npm ci
+
+    - name: Build and deploy to GitHub Pages with Gatsby
+      run: npm run deploy
