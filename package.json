@@ -21,8 +21,7 @@
       "jest": true
     },
     "globals": [
-      "__PATH_PREFIX__",
-      "jest"
+      "__PATH_PREFIX__"
     ]
   },
   "husky": {
