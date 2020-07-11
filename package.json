@@ -17,6 +17,9 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "standard": {
+    "env": {
+      "jest": true
+    },
     "globals": [
       "__PATH_PREFIX__",
       "jest"
