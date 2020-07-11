@@ -1,6 +1,7 @@
 ## Branches
-* **master** - Built files for deployment. Do not touch this branch
-* **source** - Develop in here.
+Branch off `develop` and then create a Pull Request back into it.
+
+Upon deployment, the built files will be moved into `master` and then deployed.
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
