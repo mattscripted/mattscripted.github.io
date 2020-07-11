@@ -21,14 +21,12 @@ describe('BlogIndex', () => {
         edges: []
       }
     }
-
     const location = {
       pathname: 'http://localhost'
     }
 
     render(<BlogIndex data={data} location={location} />)
 
-    console.log(screen.debug())
     expect(screen.queryByTestId(MOCK_LAYOUT_TEST_ID)).toBeInTheDocument()
   })
 })
