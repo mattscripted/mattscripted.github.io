@@ -12,13 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup GitHub user
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-
-    - name: Clean install dependencies
-      run: npm ci
-
-    - name: Build and deploy to GitHub Pages with Gatsby
-      run: npm run deploy
+    - name: Gatsby Publish
+      uses: enriikke/gatsby-gh-pages-action@v2.1.1
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
