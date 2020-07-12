@@ -1,10 +1,19 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const NotFoundPage = ({ data, location }) => {
+interface NotFoundQueryProps {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+}
+
+const NotFoundPage = (props: PageProps<NotFoundQueryProps>) => {
+  const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
 
   return (

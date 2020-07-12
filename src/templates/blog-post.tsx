@@ -1,12 +1,44 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, PageProps } from 'gatsby'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+interface BlogPostTemplateQueryProps {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  markdownRemark: {
+    excerpt: string
+    html: string
+    frontmatter: {
+      title: string
+      date: string
+      description: string
+    }
+  }
+}
+
+interface Node {
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    title: string
+  }
+}
+
+interface BlogPostTemplatePageContextProps {
+  previous: Node
+  next: Node
+}
+
+const BlogPostTemplate = (props: PageProps<BlogPostTemplateQueryProps, BlogPostTemplatePageContextProps>) => {
+  const { data, pageContext, location } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext

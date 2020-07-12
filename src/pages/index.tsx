@@ -1,12 +1,38 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, PageProps } from 'gatsby'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 
-const BlogIndex = ({ data, location }) => {
+interface Node {
+  excerpt: string
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    date: string
+    title: string
+    description: string
+  }
+}
+
+interface BlogIndexQueryProps {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  allMarkdownRemark: {
+    edges: [{
+      node: Node
+    }]
+  }
+}
+
+const BlogIndex = (props: PageProps<BlogIndexQueryProps>) => {
+  const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
