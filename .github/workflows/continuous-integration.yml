@@ -18,7 +18,8 @@ jobs:
     - name: Build with Gatsby
       run: npm run build
 
-    - name: Run linter and unit tests
+    - name: Run linter, type checker, and unit tests
       run: |
         npm run lint
+        npm run type-check
         npm run test
