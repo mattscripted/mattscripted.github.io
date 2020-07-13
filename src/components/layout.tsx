@@ -56,6 +56,7 @@ const Layout = (props: LayoutProps) => {
       </h3>
     )
   }
+
   return (
     <div
       style={{
@@ -68,9 +69,7 @@ const Layout = (props: LayoutProps) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {' '}
-        <a href='https://www.gatsbyjs.org'>Gatsby</a>
+        &copy; {new Date().getFullYear()}, Built with <a href='https://www.gatsbyjs.org'>Gatsby</a>. <Link to='/privacy'>Privacy Policy</Link>.
       </footer>
     </div>
   )

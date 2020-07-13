@@ -24,5 +24,20 @@ module.exports = {
       })
   ),
   StaticQuery: jest.fn(),
-  useStaticQuery: jest.fn()
+  useStaticQuery: jest.fn().mockImplementation(() => ({
+    site: {
+      siteMetadata: {
+        title: 'Matt Shelley',
+        author: {
+          name: 'Matt Shelley',
+          summary: 'Senior Software Engineer'
+        },
+        description: 'Personal blog of Matt Shelley',
+        siteUrl: 'https://mattshelley.dev/',
+        social: {
+          twitter: 'matt_scripted'
+        }
+      }
+    }
+  }))
 }
