@@ -1,14 +1,14 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
+import { createPageProps } from 'utils/test-utils'
+
 import BlogIndex from './index'
 
-import { createPageProps } from '../test-utils'
-
 const MOCK_LAYOUT_TEST_ID = 'layout'
-jest.mock('../components/layout', () => () => <div data-testid='layout' />)
-jest.mock('../components/bio', () => () => <div />)
-jest.mock('../components/seo', () => () => <div />)
+jest.mock('components/layout', () => () => <div data-testid='layout' />)
+jest.mock('components/bio', () => () => <div />)
+jest.mock('components/seo', () => () => <div />)
 
 describe('BlogIndex', () => {
   it('renders the layout', () => {

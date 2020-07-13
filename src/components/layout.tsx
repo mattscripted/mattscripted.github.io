@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Link } from 'gatsby'
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from 'utils/typography'
 
 type LayoutProps = {
   location: {
@@ -20,7 +20,7 @@ const Layout = (props: LayoutProps) => {
     header = (
       <h1
         style={{
-          ...scale(1.5),
+          ...scale(1.2),
           marginBottom: rhythm(1.5),
           marginTop: 0
         }}
