@@ -58,6 +58,10 @@ typings/
 .cache/
 public
 
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+
 # Mac files
 .DS_Store
 

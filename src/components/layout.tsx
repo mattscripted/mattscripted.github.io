@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
 
-const Layout = ({ location, title, children }) => {
+type LayoutProps = {
+  location: {
+    pathname: string
+  }
+  title: string
+  children: ReactNode
+}
+
+const Layout = (props: LayoutProps) => {
+  const { location, title, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 

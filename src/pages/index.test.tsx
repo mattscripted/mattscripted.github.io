@@ -3,6 +3,8 @@ import { render, screen } from '@testing-library/react'
 
 import BlogIndex from './index'
 
+import { createPageProps } from '../test-utils'
+
 const MOCK_LAYOUT_TEST_ID = 'layout'
 jest.mock('../components/layout', () => () => <div data-testid='layout' />)
 jest.mock('../components/bio', () => () => <div />)
@@ -21,11 +23,8 @@ describe('BlogIndex', () => {
         edges: []
       }
     }
-    const location = {
-      pathname: 'http://localhost'
-    }
 
-    render(<BlogIndex data={data} location={location} />)
+    render(<BlogIndex {...createPageProps({ data })} />)
 
     expect(screen.queryByTestId(MOCK_LAYOUT_TEST_ID)).toBeInTheDocument()
   })
