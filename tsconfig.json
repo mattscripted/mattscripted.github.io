@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
+      "__fixtures__/*": ["../__fixtures__/*"],
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
       "templates/*": ["templates/*"],

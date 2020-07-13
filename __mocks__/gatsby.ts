@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const React = require('react')
+import React from 'react'
+import defaultQuery from '../__fixtures__/default-query'
+
 const gatsby = jest.requireActual('gatsby')
 
 module.exports = {
@@ -24,5 +26,5 @@ module.exports = {
       })
   ),
   StaticQuery: jest.fn(),
-  useStaticQuery: jest.fn()
+  useStaticQuery: jest.fn().mockImplementation(() => defaultQuery)
 }

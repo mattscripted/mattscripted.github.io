@@ -1,15 +1,19 @@
 import React from 'react'
 import { parsePath } from 'gatsby'
 
+import defaultQuery from '__fixtures__/default-query'
+
 type CustomPageProps = {
   data?: object
   pageContext?: object
 }
 
 // Refer to PageProps: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/index.d.ts
-export const createPageProps = (props: CustomPageProps): any => {
+export const createPageProps = (props: CustomPageProps = {}): any => {
   const { data, pageContext } = props
-  const path = 'http://localhost'
+
+  const dataWithDefaults = { ...defaultQuery, ...(data || {}) }
+  const path = dataWithDefaults.site.siteMetadata.siteUrl
 
   return {
     path,
@@ -21,7 +25,7 @@ export const createPageProps = (props: CustomPageProps): any => {
     pageResources: {
       component: (() => <div />) as any,
       json: {
-        data: data || {},
+        data: dataWithDefaults,
         pageContext: pageContext || {}
       },
       page: {
@@ -31,7 +35,7 @@ export const createPageProps = (props: CustomPageProps): any => {
         matchPath: ''
       }
     },
-    data: data || {},
+    data: dataWithDefaults,
     pageContext: pageContext || {}
   }
 }
