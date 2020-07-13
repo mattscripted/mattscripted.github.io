@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const React = require('react')
+import React from 'react'
+import defaultQuery from '__fixtures__/default-query'
+
 const gatsby = jest.requireActual('gatsby')
 
 module.exports = {
@@ -24,20 +26,5 @@ module.exports = {
       })
   ),
   StaticQuery: jest.fn(),
-  useStaticQuery: jest.fn().mockImplementation(() => ({
-    site: {
-      siteMetadata: {
-        title: 'Matt Shelley',
-        author: {
-          name: 'Matt Shelley',
-          summary: 'Senior Software Engineer'
-        },
-        description: 'Personal blog of Matt Shelley',
-        siteUrl: 'https://mattshelley.dev/',
-        social: {
-          twitter: 'matt_scripted'
-        }
-      }
-    }
-  }))
+  useStaticQuery: jest.fn().mockImplementation(() => defaultQuery)
 }

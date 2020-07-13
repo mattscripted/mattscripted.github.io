@@ -1,6 +1,8 @@
 import React from 'react'
 import { parsePath } from 'gatsby'
 
+import defaultQuery from '__fixtures__/default-query'
+
 type CustomPageProps = {
   data?: object
   pageContext?: object
@@ -10,21 +12,8 @@ type CustomPageProps = {
 export const createPageProps = (props: CustomPageProps = {}): any => {
   const { data, pageContext } = props
 
-  const path = 'http://localhost'
-  const title = 'Matt Shelley'
-
-  const defaultData = {
-    site: {
-      siteMetadata: {
-        title
-      }
-    },
-    allMarkdownRemark: {
-      edges: []
-    }
-  }
-
-  const dataWithDefaults = { ...defaultData, ...(data || {}) }
+  const dataWithDefaults = { ...defaultQuery, ...(data || {}) }
+  const path = dataWithDefaults.site.siteMetadata.siteUrl
 
   return {
     path,
