@@ -6,6 +6,7 @@ type CustomPageProps = {
   pageContext?: object
 }
 
+// Refer to PageProps: https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/index.d.ts
 export const createPageProps = (props: CustomPageProps): any => {
   const { data, pageContext } = props
   const path = 'http://localhost'
