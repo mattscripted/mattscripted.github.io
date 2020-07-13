@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import BlogIndex from './index'
+import { createPageProps } from 'utils/test-utils'
 
-import { createPageProps } from '../test-utils'
+import BlogIndex from './index'
 
 const MOCK_LAYOUT_TEST_ID = 'layout'
 jest.mock('../components/layout', () => () => <div data-testid='layout' />)
