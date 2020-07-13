@@ -23,11 +23,6 @@ type BlogPostTemplateQueryProps = {
   }
 }
 
-type BlogPostTemplatePageContextProps = {
-  previous: Node
-  next: Node
-}
-
 type Node = {
   fields: {
     slug: string
@@ -35,6 +30,11 @@ type Node = {
   frontmatter: {
     title: string
   }
+}
+
+type BlogPostTemplatePageContextProps = {
+  previous: Node
+  next: Node
 }
 
 const BlogPostTemplate = (props: PageProps<BlogPostTemplateQueryProps, BlogPostTemplatePageContextProps>) => {

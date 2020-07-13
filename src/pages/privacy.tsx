@@ -3,7 +3,6 @@ import { graphql, PageProps } from 'gatsby'
 
 import Layout from 'components/layout'
 import SEO from 'components/seo'
-import { rhythm } from 'utils/typography'
 
 type PrivacyQueryProps = {
   site: {
@@ -21,19 +20,8 @@ const Privacy = (props: PageProps<PrivacyQueryProps>) => {
     <Layout location={location} title={siteTitle}>
       {/* eslint-disable-next-line react/jsx-pascal-case */}
       <SEO title='Privacy Policy' />
-      <article>
-        <h1
-          style={{
-            marginTop: rhythm(1),
-            marginBottom: rhythm(1)
-          }}
-        >
-          Privacy Policy
-        </h1>
-        <p>
-          I collect no data, not even analytics.
-        </p>
-      </article>
+      <h1>Privacy Policy</h1>
+      <p>I collect no data, not even analytics.</p>
     </Layout>
   )
 }
