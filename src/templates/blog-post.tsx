@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
-interface BlogPostTemplateQueryProps {
+type BlogPostTemplateQueryProps = {
   site: {
     siteMetadata: {
       title: string
@@ -23,18 +23,18 @@ interface BlogPostTemplateQueryProps {
   }
 }
 
-interface Node {
+type BlogPostTemplatePageContextProps = {
+  previous: Node
+  next: Node
+}
+
+type Node = {
   fields: {
     slug: string
   }
   frontmatter: {
     title: string
   }
-}
-
-interface BlogPostTemplatePageContextProps {
-  previous: Node
-  next: Node
 }
 
 const BlogPostTemplate = (props: PageProps<BlogPostTemplateQueryProps, BlogPostTemplatePageContextProps>) => {

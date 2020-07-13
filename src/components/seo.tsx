@@ -9,7 +9,7 @@ import React, { MetaHTMLAttributes } from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-interface SEOProps {
+type SEOProps = {
   title: string
   description?: string
   lang?: string

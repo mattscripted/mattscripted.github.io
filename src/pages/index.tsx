@@ -6,7 +6,18 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 
-interface Node {
+type BlogIndexQueryProps = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  allMarkdownRemark: {
+    edges: Array<{ node: Node }>
+  }
+}
+
+type Node = {
   excerpt: string
   fields: {
     slug: string
@@ -15,19 +26,6 @@ interface Node {
     date: string
     title: string
     description: string
-  }
-}
-
-interface BlogIndexQueryProps {
-  site: {
-    siteMetadata: {
-      title: string
-    }
-  }
-  allMarkdownRemark: {
-    edges: [{
-      node: Node
-    }]
   }
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
 
-interface LayoutProps {
+type LayoutProps = {
   location: {
     pathname: string
   }
