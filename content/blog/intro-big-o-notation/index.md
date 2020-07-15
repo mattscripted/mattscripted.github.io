@@ -1,7 +1,7 @@
 ---
 title: Introducing Big O Notation
 date: "2019-03-26"
-description: "Introducing Big O Notation"
+description: "With software, efficiency means using less space or time."
 ---
 
 As programmers, we write code to tell computers what to do. The computer translates this code into operations, and then executes those operations with some amount of space in memory in some amount of time. We say that one block of code is more efficient than another if it uses less space or time.
