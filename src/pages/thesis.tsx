@@ -34,6 +34,13 @@ const Thesis = (props: PageProps<ThesisQueryProps>) => {
       <SEO title="Master's Thesis" />
       <h1>Master's Thesis</h1>
       <p>
+        <em>
+          Please note: This thesis and its supporting code were written in 2013, and no longer reflect
+          the quality of my work. I have included this work for historical purposes.
+        </em>
+      </p>
+
+      <p>
         Throughout 2012 and 2013, I wrote and completed my Master's thesis,
         {' '}
         <a href='/thesis/matt-shelley-thesis.pdf'>On the Feasibility of using Use Case Maps for the Prevention of Sequence Breaking in Video Games</a>,
@@ -72,6 +79,49 @@ const Thesis = (props: PageProps<ThesisQueryProps>) => {
           <a href='/thesis/dungeon-explorer.htm'>Dungeon Explorer</a>
         </li>
       </ul>
+
+      <h2>Testing Tool</h2>
+      <p>For details on the testing tool, please refer to chapter 4 of my thesis.</p>
+
+      <h2>Dungeon Explorer</h2>
+      <p>
+        In Dungeon Explorer, the player navigates a simple dungeon, wherein they collect coins (yelllow circles).
+        As visibility is limited, torches (orange triangles) can be gathered to increase the light. By progressing
+        through the dungeon, by activating switches, more areas become accessible. Once all coins have been found
+        the player can leave the dungeon, having beaten the game.
+      </p>
+
+      <h3>Controls</h3>
+      <ul>
+        <li>
+          Press <strong>Z</strong> to close text messages
+        </li>
+        <li>
+          Use the arrow keys to move around
+        </li>
+      </ul>
+
+      <h3>Cheats</h3>
+      <p>
+        Where Dungeon Explorer gets interesting is that the player can cheat in attempt to activate switches,
+        which should not be accessible. Attempting to step on an 'illegal' switch will result in sequence breaking
+        being detected, prevented, and, to a lesser extent, resolved.
+      </p>
+      <ul>
+        <li>
+          Press <strong>Q</strong> to toggle light
+        </li>
+        <li>
+          Press <strong>W</strong> to walk through barriers
+        </li>
+        <li>
+          Press <strong>E</strong> to force switches to enabled (and thus ready to activate)
+        </li>
+      </ul>
+      <p>
+        For further details, please refer to chapter 4 of my thesis. Please note that this game was only tested
+        in both Firefox and Google Chrome on Windows 7.
+      </p>
 
       <h2>Screenshots</h2>
       <Image
