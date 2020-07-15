@@ -68,9 +68,6 @@ const Thesis = (props: PageProps<ThesisQueryProps>) => {
         <li>
           <a href='/thesis/ucm-testing-tool.htm'>Interactive Testing Tool</a>
         </li>
-        <li>
-          Dungeon Explorer - LINK TO COME
-        </li>
       </ul>
 
       <h2>Screenshots</h2>
