@@ -1,0 +1,47 @@
+<eventscripts>
+	<eventscript event="Instructions">
+		SHOW_MESSAGE:
+			In Dungeon Explorer, you must navigate through the
+			dungeon to collect every coin to unlock the exit.
+			Torches and switches will aid you in your quest.
+			
+		SHOW_MESSAGE:
+			Good luck!
+	</eventscript>
+	
+	<eventscript event="First Switch">
+		SHOW_MESSAGE:
+			You have stepped on the first switch! A barrier
+			has been removed. Keep going!
+	</eventscript>
+	
+	<eventscript event="Or Switch A">
+		SHOW_MESSAGE:
+			You have stepped on the northern switch.
+			Enjoy your reward.
+	</eventscript>
+	
+	<eventscript event="Or Switch B">
+		SHOW_MESSAGE:
+			You have stepped on the southern switch. Now the
+			northern path will be remain blocked.
+	</eventscript>
+	
+	<eventscript event="Collect Coin">
+		$global.numCoinsFound += 1
+		
+		#SHOW_MESSAGE:
+		#	You found a coin!
+	</eventscript>
+	
+	<eventscript event="Found All Coins">
+		SHOW_MESSAGE:
+			You have found all of the coins!
+			Now head for the exit!
+	</eventscript>
+	
+	<eventscript event="End Game">
+		SHOW_MESSAGE:
+			Congratulations! You have beaten the game!
+	</eventscript>
+</eventscripts>
