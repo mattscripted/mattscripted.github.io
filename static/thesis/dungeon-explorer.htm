@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<!-- Copyright (c) 2013, Matthew Shelley. All rights reserved. -->
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-language" content="en-us">
+	<title>Dungeon Explorer :: A Simple Demo to Prevent Sequence Breaking</title>
+	<link rel="stylesheet" href="common.css" type="text/css" />
+	<link rel="stylesheet" href="dungeon-explorer.css" type="text/css" />
+	
+	<script language="JavaScript" type="text/javascript" src="common-js/lib/jquery-1.7.1.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/lib/Class.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/lib/jcanvas.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/constants.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.GameData.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.InputManager.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.ScriptManager.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.NarrativeManager.js"></script>
+	<script language="JavaScript" type="text/javascript" src="dungeon-explorer/DungeonExplorer.js"></script>
+	<script language="JavaScript" type="text/javascript" src="dungeon-explorer/constants.js"></script>
+	<script language="JavaScript" type="text/javascript" src="dungeon-explorer/Vector2.js"></script>
+	<script language="JavaScript" type="text/javascript" src="dungeon-explorer.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<h1>Dungeon Explorer</h1>
+		<div id="canvas-container">
+			<canvas width="640" height="480" id="canvas-double-buffer-1"></canvas>
+			<canvas width="640" height="480" id="canvas-double-buffer-2"></canvas>
+		</div>
+		<div id="footer">Copyright &copy; 2013 Matthew Shelley. All rights reserved.</div>
+	</div>
+</body>
+
+</html>
