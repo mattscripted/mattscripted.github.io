@@ -1,3 +1,7 @@
 {
-  "standard.engine": "standardx"
+  "standard.engine": "standardx",
+  "[markdown]":{
+      "editor.wordWrap": "wordWrapColumn",
+      "editor.wordWrapColumn": 80,
+  },
 }
