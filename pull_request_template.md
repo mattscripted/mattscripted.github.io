@@ -2,6 +2,7 @@
 - [ ] No identifiable information
 - [ ] Included references to other material
 - [ ] Edited for typos, grammar, and ease of reading
+- [ ] Links are valid
 
 ## Code Quality
 - [ ] Unit tested following Test-Driven Development practices
