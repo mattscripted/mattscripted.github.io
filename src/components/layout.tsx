@@ -69,7 +69,10 @@ const Layout = (props: LayoutProps) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-        &copy; {new Date().getFullYear()}, Built with <a href='https://www.gatsbyjs.org'>Gatsby</a>. <Link to='/privacy'>Privacy Policy</Link>.
+        <nav>
+          <Link to='/about'>About</Link> &middot; <Link to='/thesis'>Thesis</Link> &middot; <Link to='/privacy'>Privacy Policy</Link>
+        </nav>
+        &copy; {new Date().getFullYear()}, Matt Shelley.
       </footer>
     </div>
   )
