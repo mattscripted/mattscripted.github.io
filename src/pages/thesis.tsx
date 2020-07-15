@@ -9,7 +9,7 @@ import { rhythm } from 'utils/typography'
 
 type ImageProps = {
   childImageSharp: {
-    fixed: any
+    fluid: any
   }
 }
 
@@ -72,21 +72,21 @@ const Thesis = (props: PageProps<ThesisQueryProps>) => {
 
       <h2>Screenshots</h2>
       <Image
-        fixed={data.testingToolImage.childImageSharp.fixed}
+        fluid={data.testingToolImage.childImageSharp.fluid}
         style={{
-          marginRight: rhythm(1 / 2)
+          marginBottom: rhythm(1 / 2)
         }}
       />
       <Image
-        fixed={data.dungeonExplorerImage.childImageSharp.fixed}
+        fluid={data.dungeonExplorerImage.childImageSharp.fluid}
         style={{
-          marginRight: rhythm(1 / 2)
+          marginBottom: rhythm(1 / 2)
         }}
       />
       <Image
-        fixed={data.dungeonExplorerDetectedImage.childImageSharp.fixed}
+        fluid={data.dungeonExplorerDetectedImage.childImageSharp.fluid}
         style={{
-          marginRight: rhythm(1 / 2)
+          marginBottom: rhythm(1 / 2)
         }}
       />
     </Layout>
@@ -99,22 +99,22 @@ export const pageQuery = graphql`
   query {
     testingToolImage: file(absolutePath: { regex: "/thesis/testing_tool.png/" }) {
       childImageSharp {
-        fixed(width: 640, height: 480) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 640, maxHeight: 480) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
     dungeonExplorerImage: file(absolutePath: { regex: "/thesis/dungeon_explorer.png/" }) {
       childImageSharp {
-        fixed(width: 640, height: 480) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 640, maxHeight: 480) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
     dungeonExplorerDetectedImage: file(absolutePath: { regex: "/thesis/dungeon_explorer_detected.png/" }) {
       childImageSharp {
-        fixed(width: 640, height: 480) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 640, maxHeight: 480) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
