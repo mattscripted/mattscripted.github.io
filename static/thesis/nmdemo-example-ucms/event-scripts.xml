@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- These particular events are for ALL examples within the demo -->
+<!-- I am assuming unique event ids in examples that use scripts! -->
+<eventscripts>
+	<!-- MISCELLANEOUS -->
+	
+	<eventscript event="Unlock Waiting Place">
+		$global.waitingPlaceUnlocked = true
+	</eventscript>
+	
+	<eventscript event="Difficult Middle Dungeon">
+		$global.specialEndingUnlocked = true
+	</eventscript>
+	
+	<eventscript event="Unlock Sidequest">
+		$global.canDoSidequest = true
+	</eventscript>
+	
+	
+	<!-- SUPER MARIO 64 -->
+	
+	<eventscript event="Bob-Omb Battlefield">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Whomp's Fortress">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Princess's Secret Slide">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Jolly Roger Bay">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="The Secret Aquarium">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Cool, Cool Mountain">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Bowser in the Dark World">
+		$global.starCount += 1
+		$global.hasBasementKey = true
+	</eventscript>
+
+	<eventscript event="Hazy Maze Cave">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Lethal Lava Land">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Shifting Sand Land">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Dire, Dire Docks">
+		$global.starCount += 1
+		$global.unlockedBowserInTheFireSea = true
+	</eventscript>
+	
+	<eventscript event="Bowser in the Fire Sea">
+		$global.starCount += 1
+		$global.hasSecondFloorKey = true
+	</eventscript>
+	
+	<eventscript event="Tower of the Wing Cap">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Big Boo's Haunt">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Snowman's Land">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Tall, Tall Mountain">
+		$global.starCount += 1
+	</eventscript>
+
+	<eventscript event="Wet-Dry World">
+		$global.starCount += 1
+	</eventscript>
+
+	<eventscript event="Tiny-Huge Island">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Tick Tock Clock">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Rainbow Ride">
+		$global.starCount += 1
+	</eventscript>
+	
+	<eventscript event="Bowser in the Sky">
+		$global.starCount += 1
+	</eventscript>
+	
+	
+	<!-- A Link to the Past -->
+	
+	<eventscript event="Find Hammer">
+		$global.foundHammer = true
+	</eventscript>
+	
+	<eventscript event="Find Hookshot">
+		$global.foundHookshot = true
+	</eventscript>
+	
+	<eventscript event="Find Fire Rod">
+		$global.foundFireRod = true
+	</eventscript>
+	
+	<eventscript event="Find Titan Mitts">
+		$global.foundTitanMitts = true
+	</eventscript>
+	
+	<eventscript event="Find Cane of Somaria">
+		$global.foundCaneOfSomaria = true
+	</eventscript>
+	
+	
+	<!-- DEMO GAME -->
+	
+	<eventscript event="Collect Coin">
+		$global.numCoinsFound += 1
+	</eventscript>
+</eventscripts>

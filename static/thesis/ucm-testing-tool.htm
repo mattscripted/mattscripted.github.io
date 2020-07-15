@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- Copyright (c) 2013, Matthew Shelley. All rights reserved. -->
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-language" content="en-us">
+	<title>UCM Narrative Manager Demo :: Test Cases of Use Case Maps</title>
+	<link rel="stylesheet" href="common.css" type="text/css" />
+	<link rel="stylesheet" href="ucm-testing-tool.css" type="text/css" />
+	
+	<script language="JavaScript" type="text/javascript" src="common-js/lib/jquery-1.7.1.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/lib/Class.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/constants.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.GameData.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.NarrativeManager.js"></script>
+	<script language="JavaScript" type="text/javascript" src="common-js/ScriptedPixels.ScriptManager.js"></script>
+	<script language="JavaScript" type="text/javascript" src="ucm-testing-tool.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<h1>Available Events (click one to proceed)</h1>
+		<div id="legal-events-parent">
+			<div id="legal-events"></div>
+		</div>		
+		
+		<div id="command-list">
+			<div class="command">
+				<h1>Call Any Event By Name</h1>
+				<input type="text" id="input-event" class="init"/>
+			</div>
+			
+			<div class="command">
+				<h1>Select UCM Example</h1>
+				<select id="select-ucm"></select>
+			</div>
+
+			<div class="command">
+				<h1>Display Sub-Map</h1>
+				<select id="select-submap"></select>
+			</div>
+		</div>
+		
+		<div id="ucm-display"></div>
+		
+		<h1 class="right">Sub-Map of UCM Example</h1>
+	</div>
+</body>
+
+</html>
