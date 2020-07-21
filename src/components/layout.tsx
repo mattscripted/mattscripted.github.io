@@ -72,7 +72,7 @@ const Layout = (props: LayoutProps) => {
         <nav>
           <Link to='/about'>About</Link> &middot; <Link to='/thesis'>Thesis</Link> &middot; <Link to='/privacy'>Privacy Policy</Link>
         </nav>
-        &copy; {new Date().getFullYear()}, Matt Shelley.
+        &copy; {new Date().getFullYear()} Matt Shelley.
       </footer>
     </div>
   )
