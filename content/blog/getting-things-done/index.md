@@ -143,7 +143,7 @@ I tried to keep this system as simple as possible, so I could evolve it over tim
 
 ## Get Things Done
 
-If you have struggled to reach your professional or personal goals, I recommend trying the [Getting Things Done](https://gettingthingsdone.com/what-is-gtd/) <sup>2</sup> methodology. Some setup, clarification, and figuring out next actions may help you get more things done.
+If you have struggled to reach your professional or personal goals or projects, I recommend trying the [Getting Things Done](https://gettingthingsdone.com/what-is-gtd/) <sup>2</sup> methodology. A little bit of setup, clarification, and figuring out next actions may help you get more things done.
 
 ## References
 
