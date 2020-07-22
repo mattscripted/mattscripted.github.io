@@ -3,6 +3,8 @@
 - [ ] Included references to other material
 - [ ] Edited for typos, grammar, and ease of reading
 - [ ] Links are valid
+- [ ] Consistent use of first-, second-, or third-person
+- [ ] Consistent use of past-, present-, or future-tense
 
 ## Code Quality
 - [ ] Unit tested following Test-Driven Development practices
