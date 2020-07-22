@@ -5,7 +5,7 @@ module.exports = {
     title: 'Matt Shelley',
     author: {
       name: 'Matt Shelley',
-      summary: 'Writing about software development and self-improvement.'
+      summary: 'Writing about software development and self-improvement'
     },
     description: 'Personal blog of Matt Shelley',
     siteUrl: 'https://mattshelley.dev/',
