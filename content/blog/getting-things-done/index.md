@@ -1,6 +1,6 @@
 ---
 title: Applying the Getting Things Done Methodology
-date: "2020-06-22"
+date: "2020-07-22"
 description: "Getting more done, one next action at a time."
 ---
 
