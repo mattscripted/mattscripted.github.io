@@ -14,6 +14,7 @@ If you're unfamiliar with the concept, Test-Driven Development means writing tes
 
 With each change, we can refactor our code knowing it still works as intended.
 
+
 ## Christmas Sundays
 
 As an early example, I picked up the [Rosetta Code challenge 'Day of the Week' on freeCodeCamp](https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/day-of-the-week). I will refer to this example as *Christmas Sundays*:
@@ -225,6 +226,7 @@ for (let year = startYear; year < endYear; year++) {
 }
 ```
 
+
 ### Further Validation
 
 While functionally the code works, you may have noticed that we could pass some more bad inputs. For example, `number` refers to integer and non-integer values. Let's catch a few more cases while we're here:
@@ -265,6 +267,7 @@ if (endYear <= 0 || !Number.isInteger(endYear)) {
   throw new Error('endYear must be a positive integer')
 }
 ```
+
 
 ### Refactor
 
