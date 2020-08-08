@@ -1,24 +1,31 @@
 ---
 title: "Walkthrough: Finding Christmas Sundays with Test-Driven Development"
-date: "2020-08-04"
+date: "2020-08-08"
 description: "Applying Test-Driven Development to the Rosetta Code 'Day of the Week' challenge"
 ---
 
-I recently started using Test-Driven Development in my day-to-day software development. I used to hate TDD, but now it's made code so much more enjoyable. I feel it has fundamentally changed how I approach writing software.
+I recently fell in love with Test-Driven Development (TDD). I find the practice enables us to write high-quality code with the confidence to refactor anytime. Honestly, it has been a breath of fresh air to software development.
+
+If you're unfamiliar with the concept, Test-Driven Development means writing tests before writing production code. Basically, we follow this process:
+
+1. Write a failing test for some new requirement
+2. Write the least amount of code to make all tests pass
+3. Repeat for the next requirement
+
+With each change, we can refactor our code knowing it still works as intended.
+
+## Christmas Sundays
 
 As an early example, I picked up the [Rosetta Code challenge 'Day of the Week' on freeCodeCamp](https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/day-of-the-week):
 
 > Write a function that takes a start year and an end year and return an array of all the years where the 25th of December will be a Sunday.
 
-# TDD Approach
+I will refer to this example as *Christmas Sundays*.
 
-1. Writing a failing unit test
-2. Write the least amount of code to pass all tests
-3. Repeat
 
-# Making the Algorithm
+## Making the Algorithm
 
-First, I want to create a unit test that checks the output. Based on the description, no matter what I pass in, I expect an array.
+First, I want to create a test that checks the output. I expect an array.
 
 ```ts
 // findChristmasSundays.test.ts
@@ -32,7 +39,7 @@ describe('findChristmasSundays', () => {
 })
 ```
 
-This test fails because I have not even written the `findChristmasSundays` method. So, let's write the least code we can to pass the test:
+This test fails because I have not even written the `findChristmasSundays()` function. So, let's write the least code we can to pass the test:
 
 ```ts
 // findChristmasSundays.ts
@@ -44,9 +51,9 @@ function findChristmasSundays (): number[] {
 export default findChristmasSundays
 ```
 
-Notice we haven't even set inputs yet, because we just don't need them.
+Notice we have not set inputs, because we don't need them--*yet*.
 
-Next, I want to return an array with the start year, if the start year has Christmas on a Sunday. I simply looked up the next calendar year where Christmas occurs on a Sunday: 2022.
+Next, I want to check that we receive an array with the start year, if the start year has Christmas on a Sunday. To find such a year, I looked through the calendar to get 2022.
 
 ```ts
 // findChristmasSundays.test.ts (snippet)
@@ -59,7 +66,7 @@ it('returns the start year, if the start year has Christmas on a Sunday', () => 
 })
 ```
 
-Since I added a new input, I also updated the previous test to include an input.
+Since I added a new input, I also updated the previous test to include an input. In my opinion, it is totally fine to refactor tests just like we would refactor production code. In fact, I encourage it.
 
 Then, I wrote the simplest code to pass the test:
 
@@ -75,7 +82,7 @@ Technically, all of our tests pass right now. But, obviously, this approach can'
 
 Well, it depends on what we are trying to accomplish. If the function was named `convertToArray()`, it would be valid, wouldn't it? Except, we're not building `convertToArray()`, we're building `findChristmasSundays()`, so we still have more work to do.
 
-Okay, so what if we pass in a year that does not have Christmas on a Sunday. (Again, I found such a year in my calendar.)
+Okay, so what if we pass in a year that does not have Christmas on a Sunday. Again, I found such a year on the calendar.
 
 ```ts
 // findChristmasSundays.test.ts (snippet)
@@ -88,7 +95,7 @@ it('does not return the start year, if the start year does not have Christmas on
 })
 ```
 
-Our test fails because we return a year where Christmas does not occur on a Sunday. Now, we can refactor our method to actually check if the year should be included.
+Our test fails because we return a year where Christmas does not occur on a Sunday, since our previous code just returned an array with the start year. Now, we can refactor our function to actually check if the year should be included.
 
 ```ts
 // findChristmasSundays.ts (snippet)
@@ -108,13 +115,15 @@ function findChristmasSundays (startYear: number): number[] {
 }
 ```
 
-Great! We can not distinguish if a year has Christmas on a Sunday or not.
+Great! We can now determine if a year has Christmas on a Sunday.
 
-Next, we need to check for a range of years by using both a start year and an end year.
+Next, we need to check for a range of years by using start year and end year. At this point, we have the choice whether to include the end year in the range.
 
-We have the choice whether to include the end year in the range or treat it as an upper bound. Personally, I want to exclude the end year to discourage the method from being used for a single year like `findChristmasSundays(2020, 2020)`. It just feels awkward. I think a separate method like `hasChristmasSunday(2020)` would be better for that case. Come to think of it, that may be a useful method later on. Hmm...
+Personally, I want to exclude the end year to discourage the function from being used for a single year like `findChristmasSundays(2020, 2020)`. To me, this usage feels awkward. Instead, I think `hasChristmasSunday(2020)` would be better for checking just one year.
 
-In fact, to enforce this point, I want to throw an error if the end year is less than or equal to the start year.
+(Come to think of it, that new function may be useful later on. Hmm...)
+
+To enforce this decision, I want to throw an error if the end year is less than or equal to the start year.
 
 ```ts
 // findChristmasSundays.test.ts (snippet)
@@ -141,11 +150,13 @@ function findChristmasSundays (startYear: number, endYear: number): number[] {
 }
 ```
 
-I refactored the unit tests to support 2 inputs for the method. With TDD, we can encourage refactoring, so don't be afraid to refactor your tests too!
+I refactored the tests to support 2 inputs for the function. With TDD, we can refactor with confidence, so don't be afraid to refactor your tests too.
 
 Next, I checked for a range of dates:
 
 ```ts
+// findChristmasSundays.test.ts (snippet)
+
 it('returns all years where Christmas is on a Sunday within a range', () => {
   const startYear = 2000
   const endYear = 2030
@@ -158,6 +169,8 @@ it('returns all years where Christmas is on a Sunday within a range', () => {
 ```
 
 ```ts
+// findChristmasSundays.ts
+
 function findChristmasSundays (startYear: number, endYear: number): number[] {
   if (endYear <= startYear) {
     throw new Error('endYear must be greater than startYear')
@@ -182,9 +195,11 @@ function findChristmasSundays (startYear: number, endYear: number): number[] {
 export default findChristmasSundays
 ```
 
-Functionally, we almost have everything! But, let's step back and recall that I said the end year should not be included in the range. Instead, we only check for `startYear <= year < endYear`. So, let's update our solution:
+Functionally, we almost have everything! But, let's step back and recall that I said the end year should not be included in the range. Instead, we should only check for `startYear <= year < endYear`. So, let's update our solution:
 
 ```ts
+// findChristmasSundays.test.ts (snippet)
+
 it('does not include the end year, even if the end year has Christmas on a Sunday', () => {
   const startYear = 2000
   const endYear = 2022
@@ -197,16 +212,20 @@ it('does not include the end year, even if the end year has Christmas on a Sunda
 ```
 
 ```ts
-// ...
+// findChristmasSundays.ts (snippet)
+
 for (let year = startYear; year < endYear; year++) {
-// ...
+  // ...
+}
 ```
 
-# Further Validation
+### Further Validation
 
-While functionally my code works, you may have noticed that I could pass some more bad inputs. For example, `number` refers to integer and non-integer values. Let's catch a few more cases while we're here:
+While functionally the code works, you may have noticed that I could pass some more bad inputs. For example, `number` refers to integer and non-integer values. Let's catch a few more cases while we're here:
 
 ```ts
+// findChristmasSundays.test.ts (snippet)
+
 it('throws an error, if the start year is not a positive integer', () => {
   const expectedError = new Error('startYear must be a positive integer')
 
@@ -231,6 +250,8 @@ it('throws an error, if the end year is not a positive integer', () => {
 ```
 
 ```ts
+// findChristmasSundays.ts (snippet)
+
 if (startYear <= 0 || !Number.isInteger(startYear)) {
   throw new Error('startYear must be a positive integer')
 }
@@ -239,13 +260,15 @@ if (endYear <= 0 || !Number.isInteger(endYear)) {
 }
 ```
 
-# Refactor
+### Refactor
 
-With all of our test cases in place, we can now refactor the code with confidence to clean things up a bit. We'll know if we broke something because one of the tests will fail.
+With all of our test cases in place, we can now refactor the code with confidence to clean things up. We'll know if we broke something because one of the tests will fail. This is the beauty of Test-Driven Development.
 
-Here's my final solution:
+Here's my final, refactored solution:
 
 ```ts
+// findChristmasSundays.test.ts
+
 import findChristmasSundays from './findChristmasSundays'
 
 describe('findChristmasSundays', () => {
@@ -324,6 +347,8 @@ describe('findChristmasSundays', () => {
 ```
 
 ```ts
+// findChristmasSundays.ts
+
 function hasChristmasSunday (year: number): boolean {
   const DAY_OF_WEEK_SUNDAY = 0
 
@@ -358,3 +383,10 @@ function findChristmasSundays (startYear: number, endYear: number): number[] {
 
 export default findChristmasSundays
 ```
+
+Alternatively, you may view the gist here: [TDD with Christmas Sundays](https://gist.github.com/mattscripted/a53660858bfb3d983752b9ab0b37d904).
+
+
+## In Closing
+
+With Test-Driven Development, we write tests before our production code. As as a result, we naturally write tests in parallel to our code, treating tests with the same respect as our code. Test-Driven Development encourages us to write high-quality software by refactoring with confidence.
