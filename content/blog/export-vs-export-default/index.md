@@ -4,7 +4,7 @@ date: "2020-08-12"
 description: "Figuring out the best practice around export vs export default"
 ---
 
-Over the years, I have seen conflicting opinions around when to use JavaScript's `export` vs `export default`. One project may embrace `export default`, while another may avoid it. Admittedly, I flip-flop between projects, too.
+Over the years, I have seen conflicting opinions around when to use JavaScript's `export` vs `export default`. One project may embrace `export default`, while another may avoid it. Admittedly, I have flip-flopped between projects, too.
 
 Looking for best practices, the documentation offers some suggestions but no definitive answers. Meanwhile, many developers dislike `export default`.
 
@@ -41,7 +41,7 @@ export default value
 import value from './module'
 ```
 
-According to the MDN web docs, default exports are used "to export a single value or to have a have a fallback value for your module" [1]. We can have one default export per module, and can name it however we like when importing [1].
+According to the MDN web docs, default exports are useful "to export a single value or to have a have a fallback value for your module" [1]. We can have one default export per module, and can name it however we like when importing [1].
 
 Under the hood, it appears that `export default` is syntactic sugar to create a named export called `default` [2][3]. Thus, these statements are equivalent:
 
@@ -79,7 +79,7 @@ There are mixed opinions on named exports and default export.
 
 ### TypeScript
 
-TypeScript recommends default export for files with a primary purpose [4]:
+TypeScript recommends default export for modules with a primary purpose [4]:
 
 > #### If you’re only exporting a single class or function, use export default
 > ... If a module’s primary purpose is to house one specific export, then you should consider exporting it as a default export. This makes both importing and actually using the import a little easier.
@@ -88,15 +88,15 @@ Further, TypeScript recommends named exports when there are multiple things to e
 
 ### Human Who Codes
 
-Nicholas C. Zakas of Human Who Codes lists his problems with default export [5]:
+Nicholas Zakas of *Human Who Codes* lists his problems with default export [5]:
 
 - It may not be obvious what the default export is
-- We may inconsistently import the same thing across files
+- We may inconsistently import the same thing across modules
 - We do not receive an error if we import the wrong thing
 
 ### TypeScript Deep Dive
 
-Basarat Ali Syed of TypeScript Deep Dive recommends against default export [6]:
+Basarat Ali Syed of *TypeScript Deep Dive* recommends against default export [6]:
 
 > If you refactor Foo in foo.ts it will not rename it in bar.ts.
 > 
@@ -105,41 +105,38 @@ Basarat Ali Syed of TypeScript Deep Dive recommends against default export [6]:
 He adds:
 
 - Intellisense and Autocomplete play nicer with named exports
-- We catch typos, e.g. `Yup` vs `yup`
-- Easier to re-export
-- Cannot `export default const ...` on a single line
+- It is easier to re-export named exports
+- We catch typos with named exports, e.g. `Yup` vs `yup`
+- We cannot write `export default const ...` on a single line
 
 ## What I say
 
-Personally, when I work on a new project where I can influence our approach, I like to use `export default` to export the main thing from a file, and `export` for helpers and constants. While there are flaws with `export default`, the syntax helps me focus on doing one thing and one thing well per file.
+When I work on a new project where I can influence our approach, I like to use default export for the main export and named exports for everything else.
+
+While there are flaws with default export, the syntax helps me focus on doing one thing per module. Further, the syntax works well when the module is named the same thing as the default export, such as with React components:
 
 ```js
 // SignupForm.js
 import React from 'react'
-import * as yup from 'yup'
 
-export const validationSchema = yup.object().shape({
-  ...
-})
+const SignupForm = (props) => { ... }
 
-const Component = (props) => { ... }
-
-export default Component
+export default SignupForm
 
 // AnotherComponent.js
-import Component, { validationSchema } from './SignupForm'
+import Component from './SignupForm'
 ```
+
+When there are multiple things to export, such as with helpers and constants, I prefer named exports:
 
 ```js
 // primes.js
-const getPrimes = () => { ... }
+export const getPrimes = () => { ... }
 
 export const getMedianPrimes = () => { ... }
 
-export default getPrimes
-
 // another-module.js
-import getPrimes, { getMedianPrimes } from './primes'
+import { getPrimes, getMedianPrimes } from './primes'
 ```
 
 Conversely, when I work on an existing project, I follow the team. If we have agreed on an approach, then it's better to be consistent and do right by everyone. After all, we create better software when we work together.
@@ -149,7 +146,9 @@ So, really, *it depends*.
 
 ## In Closing
 
-To summarize, we can use `export default` for the main thing and `export` for everything else. However, there are mixed opinions on whether we should use `export default` at all, or stick with just `export` for everything. Ultimately, there is no clear answer. So, I believe the best choice is to favour consistency and do what's right by the team.
+To summarize, we can use `export default` to export the main thing in a module and `export` to export everything else. However, there are mixed opinions on whether we should use `export default` at all, or stick with just `export` for everything.
+
+Ultimately, there is no definitive answer. So, I believe the best choice is to favour consistency and do what's right by the team.
 
 ## References
 
