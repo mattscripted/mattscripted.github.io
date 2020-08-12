@@ -75,6 +75,40 @@ So, the default export aims to simplify some cases of named exports.
 
 ## What others say
 
+There are mixed opinions on named exports and default export.
+
+### TypeScript
+
+TypeScript recommends default export for files with a primary purpose [4]:
+
+> #### If you’re only exporting a single class or function, use export default
+> ... If a module’s primary purpose is to house one specific export, then you should consider exporting it as a default export. This makes both importing and actually using the import a little easier.
+
+Further, TypeScript recommends named exports when there are multiple things to export [4].
+
+### Human Who Codes
+
+Nicholas C. Zakas of Human Who Codes lists his problems with default export [5]:
+
+- It may not be obvious what the default export is
+- We may inconsistently import the same thing across files
+- We do not receive an error if we import the wrong thing
+
+### TypeScript Deep Dive
+
+Basarat Ali Syed of TypeScript Deep Dive recommends against default export [6]:
+
+> If you refactor Foo in foo.ts it will not rename it in bar.ts.
+> 
+> If you end up needing to export more stuff from foo.ts (which is what many of your files will have) then you have to juggle the import syntax.
+
+He adds:
+
+- Intellisense and Autocomplete play nicer with named exports
+- We catch typos, e.g. `Yup` vs `yup`
+- Easier to re-export
+- Cannot `export default const ...` on a single line
+
 ## What I say
 
 Personally, when I work on a new project where I can influence our approach, I like to use `export default` to export the main thing from a file, and `export` for helpers and constants. While there are flaws with `export default`, the syntax helps me focus on doing one thing and one thing well per file.
@@ -121,4 +155,7 @@ To summarize, we can use `export default` for the main thing and `export` for ev
 
 1. ["Export." MDN Web Docs](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
 2. ["ExportEntries." Ecma International](https://tc39.es/ecma262/#sec-exports-static-semantics-exportentries)
-3. ["Modules." Exploring JS: JavaScript books for programmers](https://exploringjs.com/es6/ch_modules.html)
+3. ["Modules." Exploring JS](https://exploringjs.com/es6/ch_modules.html)
+4. ["Modules." TypeScript: Handbook](https://www.typescriptlang.org/docs/handbook/modules.html)
+5. ["Why I've stopped exporting defaults from my JavaScript modules." Human Who Codes](https://humanwhocodes.com/blog/2019/01/stop-using-default-exports-javascript-module/)
+6. ["Avoid Export Default." TypeScript Deep Dive](https://basarat.gitbook.io/typescript/main-1/defaultisbad)
