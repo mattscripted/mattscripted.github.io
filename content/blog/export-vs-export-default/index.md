@@ -1,6 +1,6 @@
 ---
 title: "JS: Export vs Export Default"
-date: "2020-08-12"
+date: "2020-08-13"
 description: "Figuring out the best practice around export vs export default"
 ---
 
