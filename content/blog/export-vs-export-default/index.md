@@ -10,9 +10,11 @@ Looking for best practices, the documentation offers some suggestions but no def
 
 So, what should we do?
 
+
 ## What the documentation says
 
 To begin, let's be clear that `export` refers to named exports, and `export default` refers to the default export.
+
 
 ### Named Exports
 Named exports look like:
@@ -73,9 +75,51 @@ import { default as value } from './module'
 
 So, the default export aims to simplify some cases of named exports.
 
+
 ## What others say
 
 There are mixed opinions on named exports and default export.
+
+
+### Popular Libraries
+
+Skimming through some popular libraries, we can see their preference.
+
+[React](https://reactjs.org/docs/hooks-state.html) appears to use both default export and named exports:
+
+```js
+import React, { useState } from 'react'
+```
+
+[React Router](https://reactrouter.com/web/guides/quick-start) appears to only use named exports:
+
+```js
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+```
+
+[Material-UI](https://material-ui.com/components/buttons/) appears to use default export for components and named exports for utilities:
+
+```js
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+```
+
+[Formik](https://formik.org/docs/examples/basic) appears to only use named exports:
+
+```js
+import { Formik, Field, Form } from 'formik'
+```
+
+[Lodash](https://stackoverflow.com/questions/35250500/correct-way-to-import-lodash) appears to prefer default exports, but also supports named exports:
+
+```js
+import includes from 'lodash/includes'
+// Alternatively:
+import { includes } from 'lodash'
+```
+
+Among popular libraries there is no preferred choice.
+
 
 ### TypeScript
 
@@ -86,6 +130,7 @@ TypeScript recommends default export for modules with a primary purpose [4]:
 
 Further, TypeScript recommends named exports when there are multiple things to export [4].
 
+
 ### Human Who Codes
 
 Nicholas Zakas of *Human Who Codes* lists his problems with default export [5]:
@@ -93,6 +138,7 @@ Nicholas Zakas of *Human Who Codes* lists his problems with default export [5]:
 - It may not be obvious what the default export is
 - We may inconsistently import the same thing across modules
 - We do not receive an error if we import the wrong thing
+
 
 ### TypeScript Deep Dive
 
@@ -109,6 +155,7 @@ He adds:
 - We catch typos with named exports, e.g. `Yup` vs `yup`
 - We cannot write `export default const ...` on a single line
 
+
 ## What I say
 
 When I work on a new project where I can influence our approach, I like to use default export for the main export and named exports for everything else.
@@ -124,10 +171,10 @@ const SignupForm = (props) => { ... }
 export default SignupForm
 
 // AnotherComponent.js
-import Component from './SignupForm'
+import SignupForm from './SignupForm'
 ```
 
-When there are multiple things to export, such as with helpers and constants, I prefer named exports:
+When there are multiple things to export, such as with utilities and constants, I prefer named exports:
 
 ```js
 // primes.js
@@ -139,16 +186,17 @@ export const getMedianPrimes = () => { ... }
 import { getPrimes, getMedianPrimes } from './primes'
 ```
 
-Conversely, when I work on an existing project, I follow the team. If we have agreed on an approach, then it's better to be consistent and do right by everyone. After all, we create better software when we work together.
+Conversely, when I work on an existing project, I follow the team. If we have a standard, then it's better to be consistent and do right by everyone. After all, we create better software when we work together.
 
 So, really, *it depends*.
 
 
 ## In Closing
 
-To summarize, we can use `export default` to export the main thing in a module and `export` to export everything else. However, there are mixed opinions on whether we should use `export default` at all, or stick with just `export` for everything.
+To summarize, we can use `export default` to export the main thing in a module and `export` to export everything else. However, there are mixed opinions on whether we should use `export default` or just stick to `export`.
 
-Ultimately, there is no definitive answer. So, I believe the best choice is to favour consistency and do what's right by the team.
+Ultimately, I think it's more important to be consistent and support the team.
+
 
 ## References
 
