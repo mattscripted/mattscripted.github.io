@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<gamedata>
+	<room tilewidth="20" tileheight="15" backgroundimage="dungeon-explorer/game-data/demo_room.png">
+		<collisiontiles>
+			00011111111111111111
+			00010000010000101001
+			00010001010000100001
+			10110001010000101001
+			10110001011101101001
+			10110001010000001001
+			10010001010000001001
+			11011011011101111001
+			10001001000000010001
+			10001101010000010001
+			10000001011101111101
+			10001111010000001101
+			10000001010000001000
+			10001100010000001000
+			11111111111111111000
+		</collisiontiles>
+		
+		<objects>
+			<object type="Coin" id="Coin-1" tilex="1" tiley="5" />
+			<object type="Coin" id="Coin-2" tilex="2" tiley="11" />
+			<object type="Coin" id="Coin-3" tilex="7" tiley="13" />
+			<object type="Coin" id="Coin-4" tilex="8" tiley="8" />
+			<object type="Coin" id="Coin-5" tilex="11" tiley="2" />
+			<object type="Coin" id="Coin-6" tilex="10" tiley="12" />
+			<object type="Coin" id="Coin-7" tilex="15" tiley="12" />
+			<object type="Coin" id="Coin-8" tilex="15" tiley="1" />
+			<object type="Coin" id="Coin-9" tilex="10" tiley="6" />
+			<object type="Coin" id="Coin-10" tilex="16" tiley="9" />
+			
+			<object type="Torch" id="Torch-1" tilex="2" tiley="13" />
+			<object type="Torch" id="Torch-2" tilex="5" tiley="6" />
+			<object type="Torch" id="Torch-3" tilex="5" tiley="2" />
+			<object type="Torch" id="Torch-4" tilex="8" tiley="4" />
+			<object type="Torch" id="Torch-5" tilex="13" tiley="13" />
+			<object type="Torch" id="Torch-6" tilex="13" tiley="3" />
+			<object type="Torch" id="Torch-7" tilex="14" tiley="9" />
+			
+			<object type="Switch" id="Switch-1" tilex="2" tiley="7" eventname="First Switch" removebarrier="Barrier-1" />
+			<object type="Barrier" id="Barrier-1" tilex="2" tiley="8" />
+			
+			<object type="Switch" id="Switch-2" tilex="4" tiley="10" eventname="Or Switch A" removebarrier="Barrier-2" />
+			<object type="Barrier" id="Barrier-2" tilex="5" tiley="10" />
+			
+			<object type="Switch" id="Switch-3" tilex="4" tiley="12" eventname="Or Switch B" removebarrier="Barrier-3" />
+			<object type="Barrier" id="Barrier-3" tilex="5" tiley="12" />
+			
+			<object type="Switch" id="Switch-4" tilex="6" tiley="1" eventname="Exit Or-A Path" removebarrier="Barrier-4" />
+			<object type="Barrier" id="Barrier-4" tilex="7" tiley="1" />
+			
+			<object type="Switch" id="Switch-5" tilex="12" tiley="13" eventname="And-Switch 1" removebarrier="Barrier-5" />
+			<object type="Barrier" id="Barrier-5" tilex="15" tiley="4" />
+			
+			<object type="Switch" id="Switch-6" tilex="15" tiley="6" eventname="And-Switch 2" removebarrier="Barrier-6" />
+			<object type="Barrier" id="Barrier-6" tilex="15" tiley="3" />
+			
+			<object type="Switch" id="Switch-7" tilex="10" tiley="1" eventname="And-Switch 3" removebarrier="Barrier-7" />
+			<object type="Barrier" id="Barrier-7" tilex="15" tiley="2" />
+			
+			<object type="Barrier" id="Barrier-Final" tilex="18" tiley="11" />
+			
+			<object type="Trigger" id="Trigger-End" tilex="18" tiley="12" eventname="End Game" />
+		</objects>
+	</room>
+	
+	<playerstart tilex="1" tiley="1" />
+	
+	<narrative
+		jucmfile="dungeon-explorer/game-data/demo_game.jucm"
+		scenarioname="Default Scenario"
+		eventsfile="dungeon-explorer/game-data/event-scripts.xml" />
+</gamedata>
