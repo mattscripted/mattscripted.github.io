@@ -88,6 +88,7 @@ With helpful messages, we encourage collaboration by documenting why and what th
 
 With atomic commits, we make small changes with helpful messages, so we build confidence in our work and our understanding of it. Atomic commits encourage us to write high-quality software.
 
+
 ## References
 
 1. ["Why I Create Atomic Commits In Git." Clarice Bouwer](https://dev.to/cbillowes/why-i-create-atomic-commits-in-git-kfi)
